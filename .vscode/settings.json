@@ -1,0 +1,32 @@
+{
+	"editor.fontFamily": "'Dank Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 18,
+	"workbench.colorTheme": "Solarized Dark",
+	"editor.formatOnSave": true,
+	"editor.renderWhitespace": "all",
+	"editor.tabSize": 2,
+	"vim.visualModeKeyBindingsNonRecursive": [
+		{
+			"before": [
+				">"
+			],
+			"commands": [
+				"editor.action.indentLines"
+			]
+		},
+		{
+			"before": [
+				"<"
+			],
+			"commands": [
+				"editor.action.outdentLines"
+			]
+		},
+	],
+	"vim.sneak": true,
+	"vim.leader": ",",
+	"vim.camelCaseMotion.enable": true,
+	"workbench.startupEditor": "none",
+	"javascript.updateImportsOnFileMove.enabled": "always"
+}

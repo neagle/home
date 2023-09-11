@@ -1,5 +1,5 @@
 # Load aliases
-source $HOME/.zsh/aliases
+source $HOME/.zsh/aliases.zsh
 
 autoload -Uz compinit && compinit
 autoload zmv
@@ -43,35 +43,17 @@ if [ -d "$HOME/.bookmarks" ]; then
     # alias goto="cd -P"
 fi
 
-# Deno
-export DENO_INSTALL="/Users/nate/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Greymatter Tools
 export PATH="$PATH:$HOME/repos/greymatter/gm-tools/bin"
 
 export EDITOR="/usr/bin/vim"
 
-# Enable direnv
-eval "$(direnv hook zsh)"
-
 # Enable rbenv
 eval "$(rbenv init - zsh)"
 
-aws-ado() {
-  aws sso login --profile dicelab-ado
-  aws sts get-caller-identity --profile dicelab-ado
-  aws-ado-ssh
-}
-# AWS SSM session for SSH Port Forwarding
-aws-ado-ssh() {
-  aws ssm start-session --profile ado --target i-0118c75ff024cbd21 --document-name AWS-StartPortForwardingSession --parameters "portNumber"=\["22"\],"localPortNumber"=\["9998"\]
-}
-# AWS SSM session for RDP Port Forwarding
-aws-ado-rdp() {
-  aws ssm start-session --profile ado --target i-0118c75ff024cbd21 --document-name AWS-StartPortForwardingSession --parameters "portNumber"=\["3389"\],"localPortNumber"=\["9999"\]
-}
+# Augment the PATH
+source $HOME/.zsh/path.zsh
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/nate/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Load specific program initializations
+source $HOME/.zsh/initializations.zsh
