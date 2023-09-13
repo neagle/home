@@ -3,3 +3,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # todo.txt
 alias t="todo.sh -a"
+
+# Shortcut code -> code-insiders
+alias code="code-insiders"

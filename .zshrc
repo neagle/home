@@ -1,5 +1,7 @@
 # Load aliases
 source $HOME/.zsh/aliases.zsh
+# Load functions
+source $HOME/.zsh/functions.zsh
 
 autoload -Uz compinit && compinit
 autoload zmv
@@ -23,26 +25,6 @@ alias ls="ls -G"
 
 export N_PREFIX="$HOME/n"
 [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
-
-# Bookmarks
-# @see https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774
-if [ -d "$HOME/.bookmarks" ]; then
-    export CDPATH=".:$HOME/.bookmarks:/"
-    function goto() {
-        echo "$fg[blue]Bookmarks:\n$fg[cyan]"
-        if
-            [ $# -eq 0 ]
-            cd -P "$@"
-        then
-            ls -1 $HOME/.bookmarks
-
-            echo "$fg[black]\nTo add a new bookmark:\n"
-            echo "ln -s path/to/certain/directory/with/my/project ~/.bookmarks/@important-project$reset_color"
-        fi
-    }
-    # alias goto="cd -P"
-fi
-
 
 # Greymatter Tools
 export PATH="$PATH:$HOME/repos/greymatter/gm-tools/bin"
